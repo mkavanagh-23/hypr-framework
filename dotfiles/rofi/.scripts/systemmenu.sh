@@ -15,19 +15,15 @@ options=(
   "$vpn_option"
   "New Git Project"
   "Print Screen"
-  "Serial Monitor"
-  "Screen Shaders"
 )
 
 # Create associative array mapping text to actions
 declare -A actions
 actions["Power"]="$HOME/.scripts/powermenu.sh"
-actions["Network Settings"]="ghostty -e 'sleep 0.2 && nmtui'"
+actions["Network Settings"]="ghostty -e zsh -c 'sleep 0.2 && nmtui'"
 actions["$vpn_option"]="$HOME/.scripts/vpn-connect.sh"
 actions["New Git Project"]="$HOME/.scripts/gh-new-repo.sh"
 actions["Print Screen"]="grimshot --notify savecopy screen"
-actions["Serial Monitor"]="$HOME/.scripts/serialmonitor.sh"
-actions["Screen Shaders"]="$HOME/.scripts/shadermenu.sh"
 
 # Prompt user using rofi in dmenu mode
 choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -p "System Menu" -i -theme oldworld-purple)
