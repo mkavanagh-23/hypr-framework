@@ -3,15 +3,15 @@
 # Define menu options and corresponding actions
 options=(
   "Lock"
-  "Logout"
+  "Restart Hyprland"
   "Shutdown"
   "Reboot"
 )
 
 # Create associative array mapping text to actions
 declare -A actions
-actions["Lock"]="sleep 0.2 && hyprlock"
-actions["Logout"]="hyprctl dispatch exit && echo '\n'"
+actions["Lock"]="sleep 0.2 && loginctl lock-session"
+actions["Restart Hyprland"]="hyprshutdown"
 actions["Shutdown"]="systemctl poweroff"
 actions["Reboot"]="systemctl reboot"
 
