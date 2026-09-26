@@ -1,0 +1,14 @@
+local terminal = "ghostty"
+local lock = "hyprlock"
+return {
+    terminal = terminal,
+    fileManager = terminal .. " -e yazi",
+    menu = "rofi --term=" .. terminal .. " -i -show drun -show-icons",
+    browser = "zen-browser",
+    lock = lock,
+    lock_off = lock .. " && hyprctl dispatch dpms off",
+    system_menu = "~/.scripts/systemmenu.sh",
+    power_menu = "~/.scripts/powermenu.sh",
+    search = "~/.scripts/google-search.sh",
+    ssh = "rofi -show ssh -theme oldworld-yellow",
+}
