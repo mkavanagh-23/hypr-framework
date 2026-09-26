@@ -1,1 +1,4 @@
 timers.target.wants/
+default.target.wants/
+pipewire.service.wants/
+sockets.target.wants/
