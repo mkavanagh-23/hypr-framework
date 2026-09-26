@@ -18,7 +18,7 @@ hl.config({
         },
     },
     animations = { enabled = true },
-    dwindle = { pseudotile = true, preserve_split = true },
+    dwindle = { preserve_split = true },
     master = { new_status = "master" },
 })
 hl.curve("myBezier", { type = "bezier", points = {{0.1, 0.9}, {0.05, 1.05}} })

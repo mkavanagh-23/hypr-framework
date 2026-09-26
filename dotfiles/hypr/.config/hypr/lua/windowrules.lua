@@ -9,6 +9,7 @@ for _, class in ipairs({
     hl.window_rule(rule)
 end
 
+-- Application window rules
 hl.window_rule({ match = { class = "^(galculator)$" }, float = true, size = {400, 600} })
 hl.window_rule({ match = { class = "^(zenity)$" }, float = true, border_size = 0 })
 hl.window_rule({ match = { title = "^(iheartcams)$" }, float = true, size = {600, 300} })
