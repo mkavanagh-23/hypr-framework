@@ -32,9 +32,10 @@ exec(m .. "SHIFT + H", "killall qs || qs -c desktopBar")
 --end
 
 -- Top bar controls
-exec("XF86AudioMute", "pamixer -t", { locked = true })
-exec("XF86AudioLowerVolume", "pamixer -d 3", { locked = true, repeating = true })
-exec("XF86AudioRaiseVolume", "pamixer -i 3", { locked = true, repeating = true })
+exec("XF86AudioMute", "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle", { locked = true })
+exec("SHIFT + XF86AudioMute", "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle", { locked = true })
+exec("XF86AudioLowerVolume", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%-", { locked = true, repeating = true })
+exec("XF86AudioRaiseVolume", "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 3%+", { locked = true, repeating = true })
 exec("XF86AudioPrev", "playerctl previous", { locked = true })
 exec("XF86AudioPlay", "playerctl play-pause", { locked = true })
 exec("XF86AudioNext", "playerctl next", { locked = true })
