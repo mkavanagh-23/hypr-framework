@@ -1,0 +1,14 @@
+# Disable window decorations
+window-decoration = false
+
+theme = oldworld
+background-opacity = 0.7
+window-padding-x = 4,2
+
+mouse-hide-while-typing = true
+resize-overlay = never
+
+font-family = "GeistMono Nerd Font Mono"
+font-size = 12
+
+class = "ghostty"

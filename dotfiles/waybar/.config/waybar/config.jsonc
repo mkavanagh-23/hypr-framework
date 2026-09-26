@@ -1,0 +1,248 @@
+{
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  "mode": "dock",
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  "height": 42, // Waybar height (to be removed for auto height)
+  // "width": 1280, // Waybar width
+  // "spacing": 4, // Gaps between modules (4px)
+
+  // Choose the order of the modules
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["custom/updates", "custom/weather", "mpris", "tray", "custom/vpn", "network", "pulseaudio#microphone", "pulseaudio", "custom/bedroomlights", "idle_inhibitor"],
+  
+  // Modules configuration
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "format": "{icon}  {windows}",
+    "format-window-separator": " ",
+    "window-rewrite-default": " ",
+    "window-rewrite": {
+      "title<.*youtube.*>": " ",
+      "title<.*reddit.*>": " ",
+      "title<.*System Update*>": "󰚰 ",
+      "title<.*Picture-in-Picture.*>": " ",
+      "class<firefox>": " ",
+      "class<zen>": " ",
+      "class<chromium>": " ",
+      "class<kitty>": " ",
+      "class<com.mitchellh.ghostty>": " ",
+      "class<konsole>": " ",
+      "class<thunar>": "󰝰 ",
+      "class<discord>": " ",
+      "class<sublime_text>": "󰅳 ",
+      "class<celluloid>": " ",
+      "class<Cider>": "󰎆 ",
+      "class<code-oss>": "󰨞 ",
+      "class<codeblocks>": "󰅩 ",
+      "class<org.larusstone.qtspim>": " ",
+      "class<libreoffice-writer>": " ",
+      "class<libreoffice-startcenter>": "󰏆 ",
+      "class<mpv>": " ",
+      "class<WebApp-ChatGPT0190>": "󱜸 ",
+      "class<org.pwmt.zathura>": " ",
+      "class<obsidian>": "󱓧 ",
+      "title<vim.*>": " ",
+      "title<nvim.*>": " ",
+      "title<Yazi.*>": "󰝰 ",
+      "class<Arduino IDE>": " ",
+      "class<org.yuzu_emu.yuzu>": "󰟡 ",
+      "class<steam>": " ",
+      "class<org.mozilla.Thunderbird>": " ",
+      "class<localsend>": " ",
+      "class<gimp>": " ",
+      "class<virt-manager>": "󰍹 ",
+      "class<com.hypixel.HytaleLauncher>": "󰍳 ",
+      "class<HytaleClient>": "󰍳 ",
+      "class<soh.elf>": "󰷠 ",
+      "class<2s2h.elf>": "󰷠 "
+    }   
+  },
+  "hyprland/window": {
+      "format": "{title}",
+//    "format": "{class}",
+      "separate-outputs": true
+  },
+  "custom/updates": {
+    "format": "{}",
+    "exec": "~/.scripts/updates-status.sh",
+    "return-type": "json",
+    "signal": 8,
+    "interval": "once",
+    "on-click": "ghostty -e ~/.scripts/update.sh",
+    "tooltip": true,
+    "tooltip-markup": "pango"
+  },
+  "custom/weather": {
+    "format": "{}",
+    "exec": "~/.scripts/weather.sh",
+    "return-type": "json",
+    "signal": 9,
+    "interval": 600,
+    "on-click": "~/.scripts/weather-click.sh",
+    "tooltip": true,
+    "tooltip-markup": "pango"
+  },
+  "clock": {
+    // "timezone": "America/New_York",
+    "format": "  {:%H:%M}",
+    "format-alt": "{:%A  |  %H:%M  |  %e %B}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "mpris": {
+    "interval": 1,
+    "format": "{player_icon}  {dynamic}",
+    "format-paused": "{status_icon}  {dynamic}",
+    "status-icons": {
+      "playing": "",
+      "paused": "",
+      "stopped": ""
+    },
+    "player-icons": {
+      "firefox": "",
+      "chromium": "󰎆"
+    },
+    "dynamic-order": ["artist", "title"],
+    "title-len": 26,
+    "artist-len": 24,
+    "tooltip-format": "{position} / {length}"
+  },
+  "tray": {
+    "icon-size": 15,
+    "spacing": 10
+  },
+  "custom/vpn": {
+    "format": "{}",
+    "exec": "~/.scripts/vpn-status.sh",
+    "return-type": "json",
+    "interval": 5,
+    "on-click": "/bin/bash -c '~/.scripts/vpn-connect.sh'",
+    "tooltip": true,
+  },
+  "custom/bedroomlights": {
+    "exec": "~/.scripts/lights-status.sh",
+    "return-type": "json",
+    "format": "{icon}",
+    "format-icons": {
+      "on": "󰛨 ",
+      "off": "󰹐 ",
+      "unknown": "󱧣 "
+    },
+    "signal": 7,
+    "on-click": "~/.scripts/lights-toggle.sh",
+    "interval": 30,
+    "exec-on-event": true,
+    "tooltip": true
+  },
+  "network": {
+    // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "format-wifi": "{icon}   {signalStrength}%",
+    "format-ethernet": "󰈀",
+    "format-linked": "󰤭  {ifname} | No IP",
+    "format-disconnected": "󰤭 ",
+    "format-alt": "[{ifname}] {essid}",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "on-click-right": "nmgui",
+    "tooltip": true,
+    "tooltip-format": "{ifname} ({ipaddr})\n {bandwidthUpBytes}\n {bandwidthDownBytes}"
+  },
+  "battery": {
+    "bat": "BAT0",
+    "states": {
+      "good": 85,
+      "warning": 40,
+      "critical": 20
+    },
+    "format": "{icon}",
+    "format-charging": "󰂄",
+    "format-plugged": "󰚥",
+    "format-alt": "{capacity}%  {icon}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": [" ", " ", " ", " ", " "],
+    "tooltip": true
+  },
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{icon} ",
+    "format-bluetooth": "{icon} ",
+    "format-bluetooth-muted": "󰟎 ",
+    "format-muted": "",
+    "format-icons": {
+      "hands-free": " ",
+      "headset": " ",
+      "phone": " ",
+      "portable": " ",
+      "car": " ",
+      "default": ["", "", ""]
+    },
+    "on-click": "pamixer -t",
+    "on-click-right": "pwvucontrol",
+    "on-scroll-up": "pamixer -i 1",
+    "on-scroll-down": "pamixer -d 1",
+    "reverse-scrolling": true,
+    "scroll-step": 0.5,
+    "tooltip": true,
+    "tooltip-format": "Volume {volume}%\n{desc}"
+  },
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": "",
+    "format-source-muted": "",
+    "on-click": "pamixer --default-source -t",
+    "on-scroll-up": "pamixer --default-source -i 2",
+    "on-scroll-down": "pamixer --default-source -d 2",
+    "scroll-step": 2,
+    "tooltip": false
+  },
+  "backlight": {
+   "device": "acpi_video0",
+   "format": "{icon}",
+   "format-icons": ["󰛩", "󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"],
+   "on-scroll-up": "brightnessctl --device=acpi_video0 set 1%+",
+   "on-scroll-down": "brightnessctl --device=acpi_video0 set 1%-",
+   "on-click": "brightnessctl --device-acpi_video0 set 50",
+   "min-length": 6,
+   "scroll-step": 0.5,
+   "reverse-scrolling": true,
+   "tooltip": true,
+   "tooltip-format": "Backlight {percent}%"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰈈",
+      "deactivated": "󰛑"
+    },
+    "tooltip": false
+  //},
+  //"keyboard-state": {
+  //  "numlock": true,
+  //  "capslock": true,
+  //  "format": "{name} {icon}",
+  //  "format-icons": {
+  //    "locked": "",
+  //    "unlocked": ""
+  //  }
+  //},
+  //"cpu": {
+  //  "format": "{usage}% ",
+  //  "tooltip": false
+  //},
+  //"memory": {
+  // "format": "{}% "
+  //},
+  //"temperature": {
+  //  // "thermal-zone": 2,
+  //  // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+  //  "critical-threshold": 80,
+  //  // "format-critical": "{temperatureC}°C {icon}",
+  //  "format": "{temperatureC}°C {icon}",
+  //  "format-icons": [" ", "", " "]
+  }
+}

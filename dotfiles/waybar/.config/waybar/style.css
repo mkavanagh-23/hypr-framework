@@ -1,0 +1,194 @@
+@import url("oldworld.css");
+
+*{
+  background: @bgAlpha;
+  background-color: @bgAlpha;
+  border: none;
+  font-family: 'NotoSans Nerd Font', FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;font-size: 16px;
+  font-weight: bold;
+  transition: 0.05s;
+}
+
+#workspaces,
+#window,
+#custom-updates,
+#custom-weather,
+#clock,
+#mpris,
+#tray,
+#custom-vpn,
+#custom-bedroomlights,
+#network,
+#battery,
+#pulseaudio,
+#backlight,
+#idle_inhibitor {
+  margin: 3px 5px;
+  padding: 0px 10px;
+  color: @fg;
+}
+
+#clock {
+  color: @orange;
+}
+
+tooltip {
+  color: @fg;
+  border-color: @fg;
+  border-radius: 10px;
+  border-width: 1.5px;
+  border-style: solid;
+}
+
+
+/* Left Modules */
+
+#workspaces button {
+  margin-right: 3px;
+  padding: 5px;
+  background: transparent;
+  color: @subtext4;
+}
+
+#workspaces button:hover {
+  box-shadow: none; /* Remove predefined box-shadow */
+  text-shadow: none; /* Remove predefined text-shadow */
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: @gray2;
+}
+
+#workspaces button.active {
+  color: @subtext2;
+}
+
+#workspaces button.urgent {
+  color: @red;
+}
+
+#window {
+  color: @magenta;
+}
+
+#window#waybar.empty #window {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#custom-updates {
+  color: @orange;
+  padding-right: 3px;
+}
+
+#custom-weather {
+  color: @fg;
+  padding-right: 3px;
+}
+
+#custom-weather.blue {
+  color: @blue;
+}
+
+#custom-weather.purple {
+  color: @purple;
+}
+
+#custom-weather.yellow {
+  color: @yellow;
+}
+
+#custom-weather.orange {
+  color: @orange;
+}
+
+#custom-weather.pink {
+  color: @magenta;
+}
+
+#mpris {
+  color: @magenta;
+}
+
+#mpris.paused {
+  color: @subtext4;
+}
+
+#custom-weather.red {
+  color: @red;
+}
+
+/* Right Modules */
+#tray {
+  color: @magenta;
+}
+
+#custom-vpn {
+  color: @subtext4;
+}
+
+#custom-vpn.connected {
+  color: @red;
+}
+
+#custom-bedroomlights {
+  color: @subtext4;
+}
+
+#custom-bedroomlights.lights-on {
+  color: @yellow;
+}
+
+#network {
+  color: @purple;
+}
+
+#network.disconnected {
+  color: @subtext4;
+}
+
+#battery {
+  color: @green;
+}
+
+#battery.charging {
+  color: @cyan;
+}
+
+#battery.good {
+  color: @yellow;
+}
+
+#battery.warning {
+  color: @orange;
+}
+
+#battery.critical {
+  color: @red;
+}
+
+#pulseaudio {
+  color: @blue;
+}
+
+#pulseaudio.muted {
+  color: @subtext4;
+}
+
+#backlight {
+  margin: 3px 0px;
+  padding: 0px 0px;
+  color: @yellow;
+}
+
+#idle_inhibitor {
+  color: @subtext4;
+}
+
+#idle_inhibitor.activated {
+  color: @yellow;
+}
