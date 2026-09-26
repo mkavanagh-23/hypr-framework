@@ -25,7 +25,7 @@ exec("Print", "grimshot --notify savecopy screen", { locked = true })
 exec("SHIFT + Print", "grimshot --notify savecopy anything", { locked = true })
 exec(m .. "SHIFT + P", "grimshot --notify savecopy screen")
 exec(m .. "P", "grimshot --notify savecopy anything")
---exec(m .. "SHIFT + H", "killall waybar || waybar")
+exec(m .. "SHIFT + H", "killall qs || qs -c desktopBar")
 --local shaders = { "none", "dark", "crt", "chromatic", "drugs", "retro", "vhs1", "vhs2", "vhs3" }
 --for i, shader in ipairs(shaders) do
 --    exec(m .. "CTRL + " .. (i - 1), "$HOME/.scripts/shader-" .. shader .. ".sh", { locked = true })

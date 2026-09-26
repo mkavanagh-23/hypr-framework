@@ -1,3 +1,4 @@
+require("lua.environment")
 require("lua.theme")
 require("lua.windows")
 require("lua.input")
