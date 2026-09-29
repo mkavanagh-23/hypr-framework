@@ -3,7 +3,7 @@ hl.monitor({
     output = "eDP-1",
     mode = "2880x1920@120",
     position = "1840x1440",
-    scale = 2,
+    scale = 1.5,
 })
 
 -- Acer 2 - left external
@@ -45,7 +45,7 @@ hl.bind(
 hl.bind(
     "switch:off:Lid Switch",
     hl.dsp.exec_cmd(
-        [[hyprctl eval 'hl.monitor({ output = "eDP-1", disabled = false, mode = "2880x1920@120", position = "1840x1440", scale = 2 })']]
+        [[hyprctl eval 'hl.monitor({ output = "eDP-1", disabled = false, mode = "2880x1920@120", position = "1840x1440", scale = 1.5 })']]
     ),
     { locked = true }
 )
