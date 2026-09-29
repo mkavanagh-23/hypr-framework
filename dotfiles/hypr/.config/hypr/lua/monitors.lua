@@ -13,6 +13,9 @@ hl.monitor({
     mode = "2560x1440@144",
     position = "0x0",
     scale = 1,
+    vrr = 3,
+    cm = "wide",
+    bitdepth = 10,
 })
 
 -- Acer 1 - right external
@@ -22,6 +25,9 @@ hl.monitor({
     mode = "2560x1440@143.91",
     position = "2560x0",
     scale = 1,
+    vrr = 3,
+    cm = "wide",
+    bitdepth = 10,
 })
 
 -- Fallback
