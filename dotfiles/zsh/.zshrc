@@ -1,4 +1,11 @@
 export GOPATH="$HOME/.go"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_SCREENSHOTS_DIR="$HOME/Pictures/Screenshots"
+HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh/history"
+mkdir -p "${HISTFILE:h}"
 
 # If you come from bash you might have to change your $PATH.
 export PATH="$HOME/.local/bin:$PATH"
@@ -21,6 +28,12 @@ fi
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 COMPLETION_WAITING_DOTS="true"
+
+# Completion cache
+ZSH_COMPDUMP="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
+mkdir -p "${ZSH_COMPDUMP:h}"
+autoload -Uz compinit
+compinit -d "$ZSH_COMPDUMP"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -47,8 +60,6 @@ fi
 # Set the manpager program
 export MANPAGER="nvim +Man!"
 
-# Set screenshot directory
-export XDG_SCREENSHOTS_DIR="$HOME/Pictures/Screenshots"
 export DOTFILES_DIR="$HOME/.dotfiles"
 
 # Enable Carapace completion engine
