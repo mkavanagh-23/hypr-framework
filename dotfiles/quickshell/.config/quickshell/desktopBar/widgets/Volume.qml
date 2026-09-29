@@ -8,9 +8,14 @@ Item {
   Text {
     id: volumePercent
 
-    text: "vol " + Math.round((Pipewire.defaultAudioSink?.audio?.volume ?? 0) * 100) + "%"
+    text: Pipewire.defaultAudioSink?.audio?.muted
+      ? "vol muted"
+      : "vol " + Math.round((Pipewire.defaultAudioSink?.audio?.volume ?? 0) * 100) + "%"
+
     color: "#cdd6f4"
   }
 
-  PwObjectTracker { objects: [Pipewire.defaultAudioSink] }
+  PwObjectTracker {
+    objects: [Pipewire.defaultAudioSink]
+  }
 }

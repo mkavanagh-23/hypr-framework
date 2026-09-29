@@ -1,4 +1,4 @@
-import Quickshell
+//import Quickshell
 import Quickshell.Io
 import QtQuick
 
@@ -28,7 +28,6 @@ Item {
       onStreamFinished: {
         connectionType = "disconnected"
         connectionName = ""
-        wifiSignal = 0
 
         const lines = this.text.trim().split("\n")
 
@@ -77,6 +76,8 @@ Item {
 
     stdout: StdioCollector {
       onStreamFinished: {
+        wifiSignal = 0
+
         const lines = this.text.trim().split("\n")
 
         for (const line of lines) {
@@ -112,9 +113,9 @@ Item {
 
       if (connectionType === "wifi") {
         if (wifiSignal >= 80) return "󰤨"
-        if (wifiSignal >= 80) return "󰤥"
-        if (wifiSignal >= 80) return "󰤢"
-        if (wifiSignal >= 80) return "󰤟"
+        if (wifiSignal >= 60) return "󰤥"
+        if (wifiSignal >= 40) return "󰤢"
+        if (wifiSignal >= 20) return "󰤟"
         return "󰤯"
       }
 
