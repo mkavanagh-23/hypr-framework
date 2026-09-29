@@ -9,6 +9,6 @@ mouse-hide-while-typing = true
 resize-overlay = never
 
 font-family = "GeistMono Nerd Font Mono"
-font-size = 12
+font-size = 14
 
 class = "ghostty"
